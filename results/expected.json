@@ -1,0 +1,203 @@
+{
+  "_note": "Numbers as published in the ICNC 2027 camera-ready, with the notebook that reproduces each and the original run it came from. 'draw' identifies which candidate cache a number belongs to; numbers from different draws are never compared directly.",
+  "table1_selection": {
+    "notebook": "02_table1_selection.ipynb",
+    "draw": "main (Qwen2.5-1.5B few-shot; pool 7,473 train questions; test 1,319)",
+    "original_run": "UPGRADE_verifier_overnight, VI_restructure_experiments, FINAL_matched_gbt_rerun",
+    "majority_arbitrary": 74.91,
+    "majority_logprob_tiebreak": 74.45,
+    "token_confidence_weighted": 74.45,
+    "token_confidence_auc": 0.648,
+    "gbt_10seed_mean": 76.57,
+    "gbt_auc": 0.874,
+    "lvpp_10seed_mean": 78.84,
+    "lvpp_10seed_sd_population": 0.42,
+    "lvpp_10seed_sd_sample": 0.45,
+    "lvpp_auc": 0.869,
+    "worst_seed_mcnemar_p_vs_majority": 1.3e-06,
+    "gain_vs_best_confidence": 3.79,
+    "gain_vs_best_confidence_ci": [
+      2.27,
+      5.31
+    ],
+    "standalone_classifier_on_pool": {
+      "hidden_states": 87.3,
+      "logprob_only": 64.5,
+      "hidden_plus_logprob": 87.2,
+      "majority_class": 76.8,
+      "_note": "Full 7,473-question pool (FINAL_all_experiments phase 1). The camera-ready text cites 83.7 / 50.7 / 66.1 from an earlier, smaller pool."
+    }
+  },
+  "table2_ablation": {
+    "notebook": "03_table2_ablation.ipynb",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rows_1_5_draw": "main",
+    "pruning_rows_draw": "prefix (pool 1,864 train questions; test 1,319; unpruned majority 73.92, unpruned verifier 77.03)",
+    "original_run": "VI_restructure_experiments, CONSISTENCY_fixes, SECTION_VI_all_experiments cell 14",
+    "mid_layer": [
+      76.75,
+      0.842
+    ],
+    "last_layer": [
+      77.79,
+      0.844
+    ],
+    "multilayer_no_z": [
+      78.9,
+      0.868
+    ],
+    "multilayer_with_z": [
+      78.92,
+      0.87
+    ],
+    "prune_B169_rho025": [
+      77.13,
+      0.843,
+      3.8
+    ],
+    "prune_B110_rho025": [
+      76.72,
+      0.827,
+      8.0
+    ],
+    "prune_B110_rho050": [
+      76.55,
+      0.827,
+      16.3
+    ],
+    "last_token_only_gain": 0.68,
+    "last_token_only_p": 0.79
+  },
+  "table3_pruning_rules": {
+    "notebook": "04_table3_pruning_rules.ipynb",
+    "draw": "prefix",
+    "checkpoint_B": 110,
+    "original_run": "SECTION_VI_all_experiments cells 7 and 14 (seed 0)",
+    "keep_longest_rho050": [
+      74.3,
+      11.9
+    ],
+    "random_rho050": [
+      73.82,
+      17.4,
+      "measured at B=126 in the original run; notebook 04 recomputes at B=110"
+    ],
+    "oracle_rho050": [
+      81.12,
+      13.0,
+      "measured at B=126 in the original run; notebook 04 recomputes at B=110"
+    ],
+    "token_confidence": {
+      "0.125": [
+        77.1,
+        5.1
+      ],
+      "0.25": [
+        76.5,
+        9.7
+      ],
+      "0.375": [
+        75.44,
+        14.0
+      ],
+      "0.5": [
+        75.06,
+        18.0
+      ]
+    },
+    "lvpp": {
+      "0.125": [
+        77.1,
+        4.6
+      ],
+      "0.25": [
+        76.88,
+        9.0
+      ],
+      "0.375": [
+        76.57,
+        13.2
+      ],
+      "0.5": [
+        76.55,
+        16.3,
+        "3-seed mean; seed 0 alone is 76.27 / 17.4"
+      ]
+    }
+  },
+  "figure2_span_ablation": {
+    "notebook": "05_fig2_span_ablation.ipynb",
+    "draw": "span (Qwen2.5-1.5B-Instruct, chat prompt, T 0.7, top-p 0.8, top-k 20, repetition penalty 1.1, 512 new tokens, K 8, vLLM; pool 7,473; test 1,319; corrected trigger lvpp.prompts.CHAT_TRIGGER)",
+    "regenerate": "LVPP_span_recapture_colab.ipynb",
+    "trigger_rate_test": 91.4,
+    "majority": 76.88,
+    "complete_solution": [
+      80.49,
+      0.8781
+    ],
+    "reasoning_only": [
+      80.36,
+      0.875
+    ],
+    "answer_span_only": [
+      79.73,
+      0.8702
+    ],
+    "auc_diff_reasoning_minus_full": -0.0031,
+    "auc_diff_ci": [
+      -0.0063,
+      -0.0014
+    ],
+    "unfinished_candidates_auc": {
+      "B110": 0.812,
+      "B169": 0.786,
+      "draw": "prefix"
+    }
+  },
+  "table4_generators": {
+    "notebook": "06_table4_generators.ipynb",
+    "verifier": "earlier single-layer configuration: last-layer mean (d=1,536, ~0.4M parameters), 800-question pools, 3 seeds",
+    "original_run": "REVIEW_C_fair_tiebreak (few-shot, Math-Instruct), LCLDD_OVERNIGHT_final (distilled r32)",
+    "distilled_r16_K6": [
+      63.46,
+      66.34,
+      "single run; cache not in this release"
+    ],
+    "distilled_r32": [
+      62.17,
+      63.25
+    ],
+    "fewshot_cot": [
+      74.53,
+      76.45
+    ],
+    "math_instruct": [
+      87.95,
+      88.12
+    ]
+  },
+  "generalization": {
+    "notebook": "07_transfer_3b_math500.ipynb",
+    "original_run": "NOVELTY_experiments_v3 (E5, E1), ALL_PENDING_experiments",
+    "qwen3b_majority_logprob_tiebreak": 89.75,
+    "qwen3b_retrained_verifier": [
+      91.25,
+      0.61
+    ],
+    "qwen3b_retrained_auc": 0.8875,
+    "frozen_15b_via_ridge": [
+      88.25,
+      0.732
+    ],
+    "math500_K8_logprob_tiebreak_to_lvpp": [
+      78.4,
+      78.33
+    ],
+    "math500_K2_gain_at_majority_74_4": 0.0,
+    "math500_in_domain_auc": 0.892
+  }
+}

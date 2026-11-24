@@ -1,0 +1,16 @@
+# Core (cache-only experiments: notebooks 02-07 without recapture)
+torch>=2.1
+numpy
+pandas
+scikit-learn
+matplotlib
+xgboost>=2.0
+# GPU capture (notebooks 00, 01 and optional recapture cells)
+# The paper's captures ran with transformers 5.x; stop_strings handling differs
+# across versions and changes which tokens are sampled after a stop.
+transformers>=4.45
+accelerate
+datasets
+peft
+# MATH-500 answer equivalence
+math-verify

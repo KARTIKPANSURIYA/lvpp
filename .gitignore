@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+.venv/
+.DS_Store
+# caches and results are large; host them on Hugging Face / Zenodo, not git
+*.pt
+lvpp_results/

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lvpp"
+version = "1.0.0"
+description = "Latent Verification with Prefix Pruning for efficient self-consistency in small language models (ICNC 2027)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+  { name = "Kartik Pansuriya" }, { name = "Congcong Xu" },
+  { name = "Hena Kharwa" }, { name = "Min Song" },
+]
+dependencies = ["torch>=2.1", "numpy", "pandas", "scikit-learn", "matplotlib"]
+
+[project.optional-dependencies]
+gpu = ["transformers>=4.45", "accelerate", "datasets", "peft"]
+gbt = ["xgboost>=2.0"]
+math = ["math-verify"]
+dev = ["pytest", "nbformat", "nbclient", "ipykernel"]
+
+[tool.setuptools]
+packages = ["lvpp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["notebooks: executes the reproduction notebooks on synthetic caches (slow)"]

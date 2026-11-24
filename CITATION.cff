@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: "LVPP: Latent Verification with Prefix Pruning for Efficient Self-Consistency in Small Language Models"
+message: "If you use this repository, please cite the paper below."
+type: software
+authors:
+  - family-names: Pansuriya
+    given-names: Kartik
+    affiliation: "Stevens Institute of Technology"
+  - family-names: Xu
+    given-names: Congcong
+    affiliation: "Stevens Institute of Technology"
+  - family-names: Kharwa
+    given-names: Hena
+    affiliation: "Stevens Institute of Technology"
+  - family-names: Song
+    given-names: Min
+    affiliation: "Stevens Institute of Technology"
+repository-code: "https://github.com/KARTIKPANSURIYA/lvpp"
+license: MIT
+keywords:
+  - small language models
+  - self-consistency
+  - latent verifier
+  - hidden-state probing
+  - mathematical reasoning
+  - inference efficiency
+  - GSM8K
+preferred-citation:
+  type: conference-paper
+  title: "LVPP: Latent Verification with Prefix Pruning for Efficient Self-Consistency in Small Language Models"
+  authors:
+    - family-names: Pansuriya
+      given-names: Kartik
+    - family-names: Xu
+      given-names: Congcong
+    - family-names: Kharwa
+      given-names: Hena
+    - family-names: Song
+      given-names: Min
+  collection-title: "International Conference on Computing, Networking and Communications (ICNC)"
+  year: 2027
